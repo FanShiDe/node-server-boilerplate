@@ -1,0 +1,8 @@
+node_modules
+build
+.idea
+coverage
+yarn-error.log
+logs
+dist
+config/default.yaml

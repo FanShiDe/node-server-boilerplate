@@ -1,0 +1,28 @@
+server:
+  host: '0.0.0.0'
+  port: 4000
+  keys:
+    - 'node-server-boilerplate'
+    - 'koa'
+  session:
+    key: 'node-server-boilerplate:session'
+    maxAge: 120000
+db:
+  mysql:
+    host: '0.0.0.0'
+    port: 3306
+    user: 'root'
+    password: '*******'
+    database: '*******'
+  redis:
+    host: '0.0.0.0'
+    port: 6379
+    db: 0
+    auth: true
+    password: ''
+auth:
+  token:
+    secret: 'sunflowersecret123'
+    expireIn: '7d'
+    multi: true
+  routes:

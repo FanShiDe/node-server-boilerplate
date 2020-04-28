@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "alwaysStrict": true,
+    "allowSyntheticDefaultImports": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "resolveJsonModule": true,
+    "pretty": true,
+    "target": "ESNext",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "lib": ["esnext.array", "es2018"],
+    "rootDirs": ["src/lib"],
+    "outDir": "dist",
+    "baseUrl": "./",
+    "paths": {
+      "@lib/*": ["src/lib/*"],
+      "@controller/*": ["src/app/controller/*"],
+      "@middleware/*": ["src/app/middleware/*"],
+      "@model/*": ["src/app/model/*"],
+      "@constants/*": ["src/constants/*"]
+    },
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/@types/*.d.ts",
+    "./*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "name": "node-server-boilerplate",
+  "version": "1.0.0",
+  "description": "node server boilerplate using koa",
+  "main": "index.js",
+  "keywords": [
+    "node",
+    "server",
+    "kos",
+    "boilerplate"
+  ],
+  "author": "fansd <cuitfanshide@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "tslint": "tslint --project . src/**/*.ts --exclude ['**/*.d.ts', 'node_modules/**']",
+    "tslint:fix": "tslint --fix --project . src/**/*.ts --exclude ['**/*.d.ts', 'node_modules/**']",
+    "start:dev": "cross-env NODE_ENV=development nodemon -e ts --exec 'ts-node' -r tsconfig-paths/register ./index.ts",
+    "start:prd": "cross-env NODE_ENV=production node dist/index.js",
+    "build": "npm run tslint && node_modules/typescript/bin/tsc -b && cp -r config dist/ && cp -r script dist/ && cp -r src/json/config dist/src/json"
+  },
+  "dependencies": {
+    "@types/koa": "^2.0.51",
+    "@types/koa-redis": "^3.0.3",
+    "@types/koa-session": "^5.10.1",
+    "config": "^2.0.1",
+    "dayjs": "^1.8.17",
+    "dotenv": "^8.2.0",
+    "koa": "^2.11.0",
+    "koa-body": "^4.1.1",
+    "koa-redis": "^4.0.0",
+    "koa-router": "^7.4.0",
+    "koa-session": "^5.12.3",
+    "mysql": "^2.17.1",
+    "redis": "^2.8.0",
+    "ts-node": "^8.4.1",
+    "winston": "3.2.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/node": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.1",
+    "@babel/plugin-transform-async-to-generator": "^7.1.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-typescript": "^7.3.3",
+    "@babel/runtime": "^7.1.2",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@types/config": "^0.0.34",
+    "@types/koa-router": "^7.0.42",
+    "@types/module-alias": "^2.0.0",
+    "@types/mysql": "^2.15.7",
+    "@types/node": "^12.0.12",
+    "@types/redis": "^2.8.14",
+    "babel-eslint": "^10.0.1",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.11.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.1.7",
+    "module-alias": "^2.2.2",
+    "nodemon": "^1.18.9",
+    "prettier": "^2.0.5",
+    "tsconfig-paths": "^3.9.0",
+    "tslint": "^5.18.0",
+    "typescript": "^3.5.2"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "tsc --noEmit && lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --trailing-comma es5 --single-quote --write",
+      "npm run tslint:fix",
+      "git add"
+    ],
+    "*.js": [
+      "prettier --trailing-comma es5 --single-quote --write",
+      "git add"
+    ]
+  }
+}
