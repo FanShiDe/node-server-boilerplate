@@ -1,3 +1,1 @@
-# enfi-sunflower-server
-
-春葵 API 🌻🌻🌻
+# node-server-boilerplate
